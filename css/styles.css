@@ -251,6 +251,7 @@ body {
 }
 
 .is-hidden {
+  visibility: hidden;
   opacity: 0;
   pointer-events: none;
 }
@@ -351,6 +352,9 @@ body {
 
 .our-works .item {
   position: relative;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .our-works-title {
@@ -641,6 +645,27 @@ body {
   border-left: 1px solid #eeeeee;
   border-bottom: 1px solid #eeeeee;
   border-right: 1px solid #eeeeee;
+}
+
+.overlay-card-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+
+  transform: translateY(100%);
+}
+
+.project-card:hover .project-card-overlay {
+  transform: translateY(0);
+  transition: transform 250ms ease;
 }
 
 .project-card:nth-child(3n) {
