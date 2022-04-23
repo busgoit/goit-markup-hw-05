@@ -185,17 +185,6 @@ body {
   color: var(--brand-color);
 }
 
-/* .header-list .link.current::after {
-  content: '';
-
-  display: inline-block;
-
-  width: 50px;
-  height: 50px;
-
-  color: var(--brand-color);
-} */
-
 /* стили героя */
 
 .hero {
