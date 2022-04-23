@@ -109,11 +109,25 @@ body {
 
 .header-list {
   display: flex;
+  align-items: center;
+  margin-bottom: 0;
   margin-left: 93px;
 }
 
 .header-list .item + .item {
   margin-left: 50px;
+}
+
+.header-list .item {
+  display: inline-block;
+}
+
+.link.current::after {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  border-radius: 4px;
+  background-color: var(--brand-color);
 }
 
 .header-list .link {
@@ -125,6 +139,8 @@ body {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-contacts {
@@ -155,6 +171,8 @@ body {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-list .link:hover,
@@ -164,6 +182,17 @@ body {
 .header-list .link.current {
   color: var(--brand-color);
 }
+
+/* .header-list .link.current::after {
+  content: '';
+
+  display: inline-block;
+
+  width: 50px;
+  height: 50px;
+
+  color: var(--brand-color);
+} */
 
 /* стили героя */
 
@@ -214,6 +243,8 @@ body {
   background-color: var(--brand-color);
   border: 0;
   border-radius: 4px;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero .btn:hover,
@@ -223,59 +254,6 @@ body {
 
 .btn:hover,
 .btn:focus {
-  cursor: pointer;
-}
-
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  width: 528px;
-  height: 581px;
-
-  background-color: var(--white-color);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-}
-
-.is-hidden {
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.modal-close-btn {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-
-  background-color: var(--white-color);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-}
-
-.modal-close-btn:hover,
-.modal-close-btn:focus {
   cursor: pointer;
 }
 
@@ -354,12 +332,8 @@ body {
   position: relative;
   display: block;
   max-width: 100%;
-  height: auto;
+  height: 100%;
 }
-/* 
-display: flex;
-  align-items: center;
-  justify-content: center; */
 
 .our-works-title {
   position: absolute;
@@ -370,13 +344,13 @@ display: flex;
   width: 100%;
   height: 70px;
   margin: 0;
-  padding: 0;
+  padding: 27px 0;
+  text-align: center;
 
   color: var(--white-color);
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
-  text-align: center;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   background-color: rgba(47, 48, 58, 0.8);
@@ -384,7 +358,7 @@ display: flex;
   pointer-events: none;
 }
 
-/* стили наша команда */
+/* стили наша команда  */
 
 .our-team {
   background-color: var(--secondary-bgcolor);
@@ -465,6 +439,9 @@ display: flex;
   height: 100%;
   border-radius: 50%;
   color: var(--socials-color);
+  background-color: var(--white-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .socials-icon {
@@ -511,6 +488,7 @@ display: flex;
   color: var(--socials-color);
   border: 1px solid currentColor;
   border-radius: 4px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-logo {
@@ -556,6 +534,7 @@ display: flex;
   font-size: 14px;
   line-height: 1.72;
   letter-spacing: 0.03em;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-list .item {
@@ -568,12 +547,13 @@ display: flex;
   font-size: 14px;
   line-height: 1.72;
   letter-spacing: 0.03em;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-address:hover,
 .footer-address:focus,
-.footer-list .link:hover,
-.footer-list .link:focus {
+.footer-contacts:hover,
+.footer-contacts:focus {
   color: var(--brand-color);
 }
 
@@ -595,12 +575,70 @@ display: flex;
 .join .socials-link {
   color: var(--white-color);
   background-color: var(--footer-socials-bgcolor);
+  transition: background-color 3000ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .join .socials-link:hover,
 .join .socials-link:focus {
-  color: var(--white-color);
   background-color: var(--brand-color);
+}
+
+/* модальное окно */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 528px;
+  height: 581px;
+
+  background-color: var(--white-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+
+  background-color: var(--white-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  cursor: pointer;
 }
 
 /* страница порфолио */
@@ -626,9 +664,13 @@ display: flex;
   line-height: 1.62;
   text-align: center;
   letter-spacing: 0.03em;
+  color: currentColor;
   background-color: var(--secondary-bgcolor);
   border: 0;
   border-radius: 4px;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio .btn:hover,
@@ -653,6 +695,7 @@ display: flex;
   border-left: 1px solid #eeeeee;
   border-bottom: 1px solid #eeeeee;
   border-right: 1px solid #eeeeee;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .overlay-card-box {
@@ -672,6 +715,7 @@ display: flex;
   background-color: rgba(33, 150, 243, 0.9);
 
   transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-overlay-text {
@@ -688,7 +732,6 @@ display: flex;
 
 .project-card:hover .project-card-overlay {
   transform: translateY(0);
-  transition: transform 250ms ease;
 }
 
 .project-card:nth-child(3n) {
