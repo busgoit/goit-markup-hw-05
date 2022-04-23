@@ -78,6 +78,8 @@ body {
 /* стили шапки */
 
 .header {
+  padding-top: 24px;
+  padding-bottom: 25px;
   border-bottom: 1px solid var(--line-color);
 }
 
@@ -88,8 +90,7 @@ body {
 }
 
 .logo {
-  padding-top: 24px;
-  padding-bottom: 25px;
+  display: inline-block;
   color: var(--logo-text-color);
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
@@ -119,20 +120,11 @@ body {
 }
 
 .header-list .item {
-  display: inline-block;
-}
-
-.link.current::after {
-  display: inline-block;
-  height: 50px;
-  width: 50px;
-  border-radius: 4px;
-  background-color: var(--brand-color);
+  position: relative;
 }
 
 .header-list .link {
-  padding-top: 32px;
-  padding-bottom: 32px;
+  display: inline-block;
   color: var(--dark-color);
   font-family: inherit;
   font-weight: 500;
@@ -141,6 +133,18 @@ body {
   letter-spacing: 0.02em;
 
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link.current::after {
+  content: '';
+  position: absolute;
+  bottom: -33px;
+  left: 0;
+  display: inline-block;
+  height: 4px;
+  width: 100%;
+  border-radius: 2px;
+  background-color: var(--brand-color);
 }
 
 .header-contacts {
@@ -163,8 +167,6 @@ body {
 .header-contacts .link {
   display: inline-flex;
   align-items: center;
-  padding-top: 32px;
-  padding-bottom: 32px;
   color: currentColor;
   font-family: 'Roboto';
   font-weight: 500;
