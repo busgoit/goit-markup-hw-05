@@ -119,11 +119,8 @@ body {
   margin-left: 50px;
 }
 
-.header-list .item {
-  position: relative;
-}
-
 .header-list .link {
+  position: relative;
   display: inline-block;
   color: var(--dark-color);
   font-family: inherit;
